@@ -1,2 +1,3 @@
-public interface HexBigIntConversion {
+public interface HexBigIntConversion extends ToBigInteger {
+    String toHex();
 }
