@@ -13,6 +13,13 @@ public class HexCalc extends JFrame implements HexBigIntConversion {
     }
 
     public HexCalc() {
+        Operations op = new Operations();
 
+        JFrame HexCalc = new JFrame();
+        setSize(400, 400);
+        setTitle("Hexadecimal Calculator");
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+
+        setVisible(true);
     }
 }

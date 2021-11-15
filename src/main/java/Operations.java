@@ -1,7 +1,10 @@
 import java.math.BigInteger;
 
 public class Operations {
-    public BigInteger add() {
+    /**
+     *TODO makes sure to put Try catch for error handling in each methods
+     */
+    public BigInteger add(String BigInt1, String BigInt2) {
         return null;
     }
 
