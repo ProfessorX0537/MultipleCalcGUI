@@ -19,6 +19,7 @@ public class HexCalc extends JFrame implements HexBigIntConversion {
         setSize(400, 400);
         setTitle("Hexadecimal Calculator");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        //TODO use Line wrapping for ouput text box, will show BIG numbers
 
         setVisible(true);
     }
