@@ -1,5 +1,5 @@
 import java.math.BigInteger;
 
 public interface ToBigInteger {
-    BigInteger toBigInteger();
+    BigInteger toBigInteger(String s);
 }

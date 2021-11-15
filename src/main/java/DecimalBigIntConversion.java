@@ -1,3 +1,3 @@
 public interface DecimalBigIntConversion extends ToBigInteger {
-    String toDecimal();
+    String toDecimal(String s);
 }
