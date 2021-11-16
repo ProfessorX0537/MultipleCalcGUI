@@ -27,6 +27,6 @@ public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
         basePanel.setVisible(true);
         add(basePanel);
 
-        setVisible(true);
+        //setVisible(true);
     }
 }

@@ -28,6 +28,6 @@ public class HexCalc extends JFrame implements HexBigIntConversion {
         basePanel.setVisible(true);
         add(basePanel);
 
-        setVisible(true);
+        //setVisible(true);
     }
 }

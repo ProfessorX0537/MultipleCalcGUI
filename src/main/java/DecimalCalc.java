@@ -27,6 +27,6 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
         basePanel.setVisible(true);
         add(basePanel);
 
-        setVisible(true);
+        //setVisible(true);
     }
 }

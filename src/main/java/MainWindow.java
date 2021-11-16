@@ -5,6 +5,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 public class MainWindow extends JFrame {
+    private BinaryCalc BC = new BinaryCalc();
+    private BigIntCalc BIC = new BigIntCalc();
+    private HexCalc HC = new HexCalc();
+    private DecimalCalc DC = new DecimalCalc();
+
     public MainWindow() {
         JFrame startFrame = new JFrame();
         setSize(800, 600);
@@ -75,28 +80,40 @@ public class MainWindow extends JFrame {
         binaryCalcButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               BinaryCalc BC = new BinaryCalc();
+                BIC.setVisible(false);
+                DC.setVisible(false);
+                HC.setVisible(false);
+                BC.setVisible(true);
             }
         });
 
         bigIntegerCalcButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                BigIntCalc BIC = new BigIntCalc();
+                BIC.setVisible(true);
+                DC.setVisible(false);
+                HC.setVisible(false);
+                BC.setVisible(false);
             }
         });
 
         hexCalcButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                HexCalc HC = new HexCalc();
+                BIC.setVisible(false);
+                DC.setVisible(false);
+                HC.setVisible(true);
+                BC.setVisible(false);
             }
         });
 
         decimalCalcButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DecimalCalc DC = new DecimalCalc();
+                BIC.setVisible(false);
+                DC.setVisible(true);
+                HC.setVisible(false);
+                BC.setVisible(false);
             }
         });
 

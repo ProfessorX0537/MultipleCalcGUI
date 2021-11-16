@@ -15,6 +15,6 @@ public class BigIntCalc extends JFrame {
         basePanel.setVisible(true);
         add(basePanel);
 
-        setVisible(true);
+        //setVisible(true);
     }
 }
