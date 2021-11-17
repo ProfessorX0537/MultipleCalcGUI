@@ -1,17 +1,22 @@
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.MathContext;
 
 public class Operations {
     /**
      *TODO makes sure to put Try catch for error handling in each methods
+     *TODO also check for runtime, if runs to long terminate
      */
     public BigInteger add(BigInteger x, BigInteger y) {
         return x.add(y);
     }
 
-
-
     public BigInteger sub(BigInteger x, BigInteger y) {
         return x.subtract(y);
+    }
+
+    public BigDecimal decimalDiv(BigDecimal x, BigDecimal y) {
+        return x.divide(y, new MathContext(20));
     }
 
     public BigInteger div(BigInteger x, BigInteger y) {
@@ -49,6 +54,10 @@ public class Operations {
 
     public BigInteger rot(BigInteger x) {
         return x.sqrt();
+    }
+
+    public BigDecimal decimalRot(BigDecimal x) {
+        return x.sqrt(new MathContext(20));
     }
 
     //Greatest Common Divisor

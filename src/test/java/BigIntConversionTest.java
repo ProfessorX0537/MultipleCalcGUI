@@ -15,7 +15,8 @@ public class BigIntConversionTest {
 
         System.out.println("simple conversion binary text");
         BigInteger mm = new BigInteger("17");
-        String hexValueMM = mm.toString(16);
-        System.out.println(hexValueMM.toUpperCase(Locale.ROOT));
+        String t = "17";
+        BigInteger big = new BigInteger(t);
+        System.out.println(big.toString(16));
     }
 }
