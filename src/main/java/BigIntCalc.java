@@ -10,7 +10,7 @@ public class BigIntCalc extends JFrame implements ToBigInteger {
     }
 
     public BigIntCalc() {
-        Operations op = new Operations();
+        BigIntOperations op = new BigIntOperations();
 
         JFrame BigIntCalc = new JFrame();
         setSize(800, 200);

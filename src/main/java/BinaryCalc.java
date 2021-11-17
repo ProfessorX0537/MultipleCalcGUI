@@ -15,7 +15,7 @@ public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
     }
 
     public BinaryCalc() {
-        Operations op = new Operations();
+        BigIntOperations op = new BigIntOperations();
 
         JFrame BinaryCalc = new JFrame();
         setSize(800, 200);

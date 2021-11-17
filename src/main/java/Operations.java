@@ -1,76 +1,45 @@
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.math.MathContext;
-
-public class Operations {
-    /**
-     *TODO makes sure to put Try catch for error handling in each methods
-     *TODO also check for runtime, if runs to long terminate
-     */
-    public BigInteger add(BigInteger x, BigInteger y) {
-        return x.add(y);
+public abstract class Operations {
+    public String add() {
+        return null;
     }
 
-    public BigInteger sub(BigInteger x, BigInteger y) {
-        return x.subtract(y);
+    public String sub() {
+        return null;
     }
 
-    public BigDecimal decimalDiv(BigDecimal x, BigDecimal y) {
-        return x.divide(y, new MathContext(20));
+    public String div() {
+        return null;
     }
 
-    public BigInteger div(BigInteger x, BigInteger y) {
-        return x.divide(y);
+    public String mul() {
+        return null;
     }
 
-    public BigInteger mul(BigInteger x, BigInteger y) {
-        return x.multiply(y);
+    public String fac() {
+        return null;
     }
 
-    // This code snippet comes from my group member Jasper Newkirk I got stuck
-    public BigInteger fac(BigInteger x) {
-        BigInteger i = BigInteger.ONE;
-        BigInteger product = x;
-        while (i.compareTo(x) != 0) {
-            product = product.multiply(i);
-            i = i.add(BigInteger.ONE);
-        }
-        return product;
+    public String pow() {
+        return null;
     }
 
-    public BigInteger pow(BigInteger x, BigInteger y) {
-        BigInteger count = BigInteger.ONE;
-        BigInteger output = x;
-        while(count.compareTo(y) != 0) {
-            output = output.multiply(x);
-            count = count.add(BigInteger.ONE);
-        }
-        return output;
+    public String sqr() {
+        return null;
     }
 
-    public BigInteger sqr(BigInteger x) {
-        return x.pow(2);
+    public String rot() {
+        return null;
     }
 
-    public BigInteger rot(BigInteger x) {
-        return x.sqrt();
+    public String GCD() {
+        return null;
     }
 
-    public BigDecimal decimalRot(BigDecimal x) {
-        return x.sqrt(new MathContext(20));
+    public String LCM() {
+        return null;
     }
 
-    //Greatest Common Divisor
-    public BigInteger GCD(BigInteger x, BigInteger y) {
-        return x.gcd(y);
-    }
-
-    //lowest possible number tha can be divisible by both numbers
-    public BigInteger LCM(BigInteger x, BigInteger y) {
-        return x.multiply(y).divide(GCD(x,y));
-    }
-
-    public BigInteger MOD(BigInteger x, BigInteger y) {
-        return x.mod(y);
+    public String MOD() {
+        return null;
     }
 }

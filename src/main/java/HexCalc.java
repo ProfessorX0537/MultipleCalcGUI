@@ -17,7 +17,7 @@ public class HexCalc extends JFrame implements HexBigIntConversion  {
     }
 
     public HexCalc() {
-        Operations op = new Operations();
+        BigIntOperations op = new BigIntOperations();
 
         JFrame HexCalc = new JFrame();
         setSize(800, 200);
@@ -74,26 +74,26 @@ public class HexCalc extends JFrame implements HexBigIntConversion  {
         buttonPanel.add(greatestCommonDivisor);
         buttonPanel.add(leastCommonMultiple);
 
-        Addition.addActionListener(e -> Answer.setText(toHex(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString()).toUpperCase(Locale.ROOT)));
+        Addition.addActionListener(e -> Answer.setText(toHex(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
 
-        Subtraction.addActionListener(e -> Answer.setText(toHex(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString()).toUpperCase(Locale.ROOT)));
+        Subtraction.addActionListener(e -> Answer.setText(toHex(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
 
-        Multiplication.addActionListener(e -> Answer.setText(toHex(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString()).toUpperCase(Locale.ROOT)));
+        Multiplication.addActionListener(e -> Answer.setText(toHex(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
 
-        Division.addActionListener(e -> Answer.setText(toHex(op.div(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString()).toUpperCase(Locale.ROOT)));
+        Division.addActionListener(e -> Answer.setText(toHex(op.div(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
 
-        Power.addActionListener(e -> Answer.setText(toHex(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString()).toUpperCase(Locale.ROOT)));
+        Power.addActionListener(e -> Answer.setText(toHex(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
 
-        squareRoot.addActionListener(e -> Answer.setText(toHex(op.rot(toBigInteger(valueX.getText())).toString()).toUpperCase(Locale.ROOT)));
+        squareRoot.addActionListener(e -> Answer.setText(toHex(op.rot(toBigInteger(valueX.getText()))).toUpperCase(Locale.ROOT)));
 
-        Squared.addActionListener(e -> Answer.setText(toHex(op.sqr(toBigInteger(valueX.getText())).toString()).toUpperCase(Locale.ROOT)));
+        Squared.addActionListener(e -> Answer.setText(toHex(op.sqr(toBigInteger(valueX.getText()))).toUpperCase(Locale.ROOT)));
 
-        Factorial.addActionListener(e -> Answer.setText(toHex(op.fac(toBigInteger(valueX.getText())).toString()).toUpperCase(Locale.ROOT)));
+        Factorial.addActionListener(e -> Answer.setText(toHex(op.fac(toBigInteger(valueX.getText()))).toUpperCase(Locale.ROOT)));
 
-        Modulus.addActionListener(e -> Answer.setText(toHex(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString()).toUpperCase(Locale.ROOT)));
+        Modulus.addActionListener(e -> Answer.setText(toHex(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
 
-        greatestCommonDivisor.addActionListener(e -> Answer.setText(toHex(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString()).toUpperCase(Locale.ROOT)));
+        greatestCommonDivisor.addActionListener(e -> Answer.setText(toHex(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
 
-        leastCommonMultiple.addActionListener(e -> Answer.setText(toHex(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString()).toUpperCase(Locale.ROOT)));
+        leastCommonMultiple.addActionListener(e -> Answer.setText(toHex(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
     }
 }

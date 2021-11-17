@@ -1,20 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
-    @Override
-    public BigInteger toBigInteger(String s) {
-        return new BigInteger(s, 10);
-    }
-
-    @Override
-    public String toDecimal(String s) {
-        BigInteger big = new BigInteger(s);
-        return big.toString(10);
-    }
-
     @Override
     public BigDecimal toBigDecimal(String s) {
         return new BigDecimal(s);
@@ -27,7 +15,7 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
     }
 
     public DecimalCalc() {
-        Operations op = new Operations();
+        BigDecimalOperations op = new BigDecimalOperations();
 
         JFrame DecimalCalc = new JFrame();
         setSize(800, 200);
@@ -85,26 +73,26 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
 
 
 
-        Addition.addActionListener(e -> Answer.setText(toDecimal(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        Addition.addActionListener(e -> Answer.setText(toDecimalString(op.add(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
 
-        Subtraction.addActionListener(e -> Answer.setText(toDecimal(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        Subtraction.addActionListener(e -> Answer.setText(toDecimalString(op.sub(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
 
-        Multiplication.addActionListener(e -> Answer.setText(toDecimal(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        Multiplication.addActionListener(e -> Answer.setText(toDecimalString(op.mul(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
 
-        Division.addActionListener(e -> Answer.setText(toDecimalString(op.decimalDiv(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
+        Division.addActionListener(e -> Answer.setText(toDecimalString(op.div(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
 
-        Power.addActionListener(e -> Answer.setText(toDecimal(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        Power.addActionListener(e -> Answer.setText(toDecimalString(op.pow(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
 
-        squareRoot.addActionListener(e -> Answer.setText(toDecimalString(op.decimalRot(toBigDecimal(valueX.getText())).toString())));
+        squareRoot.addActionListener(e -> Answer.setText(toDecimalString(op.rot(toBigDecimal(valueX.getText())).toString())));
 
-        Squared.addActionListener(e -> Answer.setText(toDecimal(op.sqr(toBigInteger(valueX.getText())).toString())));
+        Squared.addActionListener(e -> Answer.setText(toDecimalString(op.sqr(toBigDecimal(valueX.getText())).toString())));
 
-        Factorial.addActionListener(e -> Answer.setText(toDecimal(op.fac(toBigInteger(valueX.getText())).toString())));
+        Factorial.addActionListener(e -> Answer.setText(toDecimalString(op.fac(toBigDecimal(valueX.getText())).toString())));
 
-        Modulus.addActionListener(e -> Answer.setText(toDecimal(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        Modulus.addActionListener(e -> Answer.setText(toDecimalString(op.MOD(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
 
-        greatestCommonDivisor.addActionListener(e -> Answer.setText(toDecimal(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        greatestCommonDivisor.addActionListener(e -> Answer.setText(toDecimalString(op.GCD(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
 
-        leastCommonMultiple.addActionListener(e -> Answer.setText(toDecimal(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        leastCommonMultiple.addActionListener(e -> Answer.setText(toDecimalString(op.LCM(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
     }
 }

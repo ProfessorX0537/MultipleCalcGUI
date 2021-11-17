@@ -1,8 +1,6 @@
 import java.math.BigDecimal;
 
-public interface DecimalBigIntConversion extends ToBigInteger {
-    String toDecimal(String s);
-
+public interface DecimalBigIntConversion {
     BigDecimal toBigDecimal(String s);
 
     String toDecimalString(String s);
