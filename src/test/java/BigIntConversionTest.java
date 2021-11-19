@@ -15,8 +15,14 @@ public class BigIntConversionTest {
 
         System.out.println("simple conversion binary text");
         BigInteger mm = new BigInteger("17");
-        String t = "17";
+        String t = "0";
         BigInteger big = new BigInteger(t);
-        System.out.println(big.toString(16));
+        String big2 = big.toString();
+        String big3 = big2;
+        System.out.println(toHex(big3));
+    }
+    public static String toHex(String s) {
+        BigInteger big = new BigInteger(s);
+        return big.toString(16);
     }
 }

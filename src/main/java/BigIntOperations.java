@@ -2,7 +2,6 @@ import java.math.BigInteger;
 
 public class BigIntOperations extends Operations {
     /**
-     *TODO makes sure to put Try catch for error handling in each methods
      *TODO also check for runtime, if runs to long terminate
      */
     public String add(BigInteger x, BigInteger y) {
@@ -14,7 +13,12 @@ public class BigIntOperations extends Operations {
     }
 
     public String div(BigInteger x, BigInteger y) {
-        return x.divide(y).toString();
+        //Catches divide by 0 error
+        if(y.equals(BigInteger.ZERO)) {
+           return "-1";
+        } else {
+            return x.divide(y).toString();
+        }
     }
 
     public String mul(BigInteger x, BigInteger y) {
@@ -33,13 +37,20 @@ public class BigIntOperations extends Operations {
     }
 
     public String pow(BigInteger x, BigInteger y) {
-        BigInteger count = BigInteger.ONE;
-        BigInteger output = x;
-        while(count.compareTo(y) != 0) {
-            output = output.multiply(x);
-            count = count.add(BigInteger.ONE);
+        //Catches error if pow of y = 0
+        if (y.equals(BigInteger.ZERO)) {
+            return "1";
+        } else if (x.equals(BigInteger.ZERO) && y.equals(BigInteger.ZERO)) {
+            return "0";
+        } else {
+            BigInteger count = BigInteger.ONE;
+            BigInteger output = x;
+            while(count.compareTo(y) != 0) {
+                output = output.multiply(x);
+                count = count.add(BigInteger.ONE);
+            }
+            return output.toString();
         }
-        return output.toString();
     }
 
     public String sqr(BigInteger x) {

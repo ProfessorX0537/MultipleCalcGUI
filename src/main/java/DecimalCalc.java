@@ -53,10 +53,7 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
         JButton Power = new JButton("X ^ Y");
         JButton squareRoot= new JButton("\u221AX");
         JButton Squared = new JButton("X ^ 2");
-        JButton Factorial = new JButton("X!");
         JButton Modulus = new JButton("MOD");
-        JButton greatestCommonDivisor = new JButton("GCD");
-        JButton leastCommonMultiple = new JButton("LCM");
 
         buttonPanel.add(Addition);
         buttonPanel.add(Subtraction);
@@ -65,10 +62,8 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
         buttonPanel.add(Power);
         buttonPanel.add(squareRoot);
         buttonPanel.add(Squared);
-        buttonPanel.add(Factorial);
         buttonPanel.add(Modulus);
-        buttonPanel.add(greatestCommonDivisor);
-        buttonPanel.add(leastCommonMultiple);
+
 
 
 
@@ -86,12 +81,6 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
 
         Squared.addActionListener(e -> Answer.setText(toDecimalString(op.sqr(toBigDecimal(valueX.getText())))));
 
-        Factorial.addActionListener(e -> Answer.setText(toDecimalString(op.fac(toBigDecimal(valueX.getText())))));
-
         Modulus.addActionListener(e -> Answer.setText(toDecimalString(op.MOD(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
-
-        //Least Common Divisor can only be performed on Integers
-
-        //Greatest Common Divisor can only be performed on Integers
     }
 }

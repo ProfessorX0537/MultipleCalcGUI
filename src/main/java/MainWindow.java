@@ -32,6 +32,7 @@ public class MainWindow extends JFrame {
         basePanel.add(center);
 
         //TODO description of program put in menu
+        // -1 value means that there was an error and user should visit help menu
 //        JTextArea description = new JTextArea();
 //        description.setBackground(Color.GRAY);
 //        description.setEditable(false);
@@ -77,44 +78,32 @@ public class MainWindow extends JFrame {
         basePanel.add(radioPanel);
 
         //Actionlisteners for radio buttons
-        binaryCalcButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                BIC.setVisible(false);
-                DC.setVisible(false);
-                HC.setVisible(false);
-                BC.setVisible(true);
-            }
+        binaryCalcButton.addActionListener(e -> {
+            BIC.setVisible(false);
+            DC.setVisible(false);
+            HC.setVisible(false);
+            BC.setVisible(true);
         });
 
-        bigIntegerCalcButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                BIC.setVisible(true);
-                DC.setVisible(false);
-                HC.setVisible(false);
-                BC.setVisible(false);
-            }
+        bigIntegerCalcButton.addActionListener(e -> {
+            BIC.setVisible(true);
+            DC.setVisible(false);
+            HC.setVisible(false);
+            BC.setVisible(false);
         });
 
-        hexCalcButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                BIC.setVisible(false);
-                DC.setVisible(false);
-                HC.setVisible(true);
-                BC.setVisible(false);
-            }
+        hexCalcButton.addActionListener(e -> {
+            BIC.setVisible(false);
+            DC.setVisible(false);
+            HC.setVisible(true);
+            BC.setVisible(false);
         });
 
-        decimalCalcButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                BIC.setVisible(false);
-                DC.setVisible(true);
-                HC.setVisible(false);
-                BC.setVisible(false);
-            }
+        decimalCalcButton.addActionListener(e -> {
+            BIC.setVisible(false);
+            DC.setVisible(true);
+            HC.setVisible(false);
+            BC.setVisible(false);
         });
 
         setVisible(true);

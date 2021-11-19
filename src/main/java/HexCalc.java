@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.Locale;
 
 public class HexCalc extends JFrame implements HexBigIntConversion  {
+    JTextField Answer = new JTextField();
 
     @Override
     public BigInteger toBigInteger(String s) {
@@ -74,7 +75,7 @@ public class HexCalc extends JFrame implements HexBigIntConversion  {
         buttonPanel.add(greatestCommonDivisor);
         buttonPanel.add(leastCommonMultiple);
 
-        Addition.addActionListener(e -> Answer.setText(toHex(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
+        Addition.addActionListener(e ->  Answer.setText(toHex(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
 
         Subtraction.addActionListener(e -> Answer.setText(toHex(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
 
