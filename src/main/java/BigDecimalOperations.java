@@ -7,60 +7,58 @@ public class BigDecimalOperations extends Operations {
      *TODO makes sure to put Try catch for error handling in each methods
      *TODO also check for runtime, if runs to long terminate
      */
-    public BigDecimal add(BigDecimal x, BigDecimal y) {
-        return x.add(y).round(rnd);
+    public String add(BigDecimal x, BigDecimal y) {
+        return x.add(y).round(rnd).toString();
     }
 
-    public BigDecimal sub(BigDecimal x, BigDecimal y) { return x.subtract(y).round(rnd); }
+    public String sub(BigDecimal x, BigDecimal y) { return x.subtract(y).round(rnd).toString(); }
 
-    public BigDecimal div(BigDecimal x, BigDecimal y) { return x.divide(y, rnd); }
+    public String div(BigDecimal x, BigDecimal y) { return x.divide(y, rnd).toString(); }
 
-    public BigDecimal mul(BigDecimal x, BigDecimal y) {
-        return x.multiply(y).round(rnd);
+    public String mul(BigDecimal x, BigDecimal y) {
+        return x.multiply(y).round(rnd).toString();
     }
 
     // This code snippet comes from my group member Jasper Newkirk I got stuck
-    public BigDecimal fac(BigDecimal x) {
+    public String fac(BigDecimal x) {
         BigDecimal i = BigDecimal.ONE;
         BigDecimal product = x;
         while (i.compareTo(x) != 0) {
             product = product.multiply(i);
             i = i.add(BigDecimal.ONE);
         }
-        return product.round(rnd);
+        return product.round(rnd).toString();
     }
 
-    public BigDecimal pow(BigDecimal x, BigDecimal y) {
+    public String pow(BigDecimal x, BigDecimal y) {
         BigDecimal count = BigDecimal.ONE;
         BigDecimal output = x;
         while(count.compareTo(y) != 0) {
             output = output.multiply(x);
             count = count.add(BigDecimal.ONE);
         }
-        return output.round(rnd);
+        return output.round(rnd).toString();
     }
 
-    public BigDecimal sqr(BigDecimal x) {
-        return x.pow(2, rnd);
+    public String sqr(BigDecimal x) {
+        return x.pow(2, rnd).toString();
     }
 
-    public BigDecimal rot(BigDecimal x) {
-        return x.sqrt(rnd);
+    public String rot(BigDecimal x) {
+        return x.sqrt(rnd).toString();
     }
 
-    //Greatest Common Divisor
-    //Euclidean Algorithm
-    public BigDecimal GCD(BigDecimal x, BigDecimal y) {
-        // TODO Use euclidean Algorithm
+    //These operations can only be performed with Integers
+    public String GCD(BigDecimal x, BigDecimal y) {
         return null;
     }
 
-    //lowest possible number tha can be divisible by both numbers
-    public BigDecimal LCM(BigDecimal x, BigDecimal y) {
-        return x.multiply(y).divide(GCD(x,y), rnd);
+    //These operations can only be performed with Integers
+    public String LCM(BigDecimal x, BigDecimal y) {
+        return null;
     }
 
-    public BigDecimal MOD(BigDecimal x, BigDecimal y) {
-        return x.remainder(y).round(rnd);
+    public String MOD(BigDecimal x, BigDecimal y) {
+        return x.remainder(y).round(rnd).toString();
     }
 }

@@ -8,7 +8,6 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
         return new BigDecimal(s);
     }
 
-    // may not need
     @Override
     public String toDecimalString(String s) {
         return new BigDecimal(s).toString();
@@ -73,26 +72,26 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
 
 
 
-        Addition.addActionListener(e -> Answer.setText(toDecimalString(op.add(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
+        Addition.addActionListener(e -> Answer.setText(toDecimalString(op.add(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
 
-        Subtraction.addActionListener(e -> Answer.setText(toDecimalString(op.sub(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
+        Subtraction.addActionListener(e -> Answer.setText(toDecimalString(op.sub(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
 
-        Multiplication.addActionListener(e -> Answer.setText(toDecimalString(op.mul(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
+        Multiplication.addActionListener(e -> Answer.setText(toDecimalString(op.mul(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
 
-        Division.addActionListener(e -> Answer.setText(toDecimalString(op.div(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
+        Division.addActionListener(e -> Answer.setText(toDecimalString(op.div(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
 
-        Power.addActionListener(e -> Answer.setText(toDecimalString(op.pow(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
+        Power.addActionListener(e -> Answer.setText(toDecimalString(op.pow(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
 
-        squareRoot.addActionListener(e -> Answer.setText(toDecimalString(op.rot(toBigDecimal(valueX.getText())).toString())));
+        squareRoot.addActionListener(e -> Answer.setText(toDecimalString(op.rot(toBigDecimal(valueX.getText())))));
 
-        Squared.addActionListener(e -> Answer.setText(toDecimalString(op.sqr(toBigDecimal(valueX.getText())).toString())));
+        Squared.addActionListener(e -> Answer.setText(toDecimalString(op.sqr(toBigDecimal(valueX.getText())))));
 
-        Factorial.addActionListener(e -> Answer.setText(toDecimalString(op.fac(toBigDecimal(valueX.getText())).toString())));
+        Factorial.addActionListener(e -> Answer.setText(toDecimalString(op.fac(toBigDecimal(valueX.getText())))));
 
-        Modulus.addActionListener(e -> Answer.setText(toDecimalString(op.MOD(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
+        Modulus.addActionListener(e -> Answer.setText(toDecimalString(op.MOD(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
 
-        greatestCommonDivisor.addActionListener(e -> Answer.setText(toDecimalString(op.GCD(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
+        //Least Common Divisor can only be performed on Integers
 
-        leastCommonMultiple.addActionListener(e -> Answer.setText(toDecimalString(op.LCM(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())).toString())));
+        //Greatest Common Divisor can only be performed on Integers
     }
 }

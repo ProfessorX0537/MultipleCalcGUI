@@ -71,26 +71,26 @@ public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
         buttonPanel.add(greatestCommonDivisor);
         buttonPanel.add(leastCommonMultiple);
 
-        Addition.addActionListener(e -> Answer.setText(toBinary(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        Addition.addActionListener(e -> Answer.setText(toBinary(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
 
-        Subtraction.addActionListener(e -> Answer.setText(toBinary(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        Subtraction.addActionListener(e -> Answer.setText(toBinary(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
 
-        Multiplication.addActionListener(e -> Answer.setText(toBinary(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        Multiplication.addActionListener(e -> Answer.setText(toBinary(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
 
-        Division.addActionListener(e -> Answer.setText(toBinary(op.div(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        Division.addActionListener(e -> Answer.setText(toBinary(op.div(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
 
-        Power.addActionListener(e -> Answer.setText(toBinary(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        Power.addActionListener(e -> Answer.setText(toBinary(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
 
-        squareRoot.addActionListener(e -> Answer.setText(toBinary(op.rot(toBigInteger(valueX.getText())).toString())));
+        squareRoot.addActionListener(e -> Answer.setText(toBinary(op.rot(toBigInteger(valueX.getText())))));
 
-        Squared.addActionListener(e -> Answer.setText(toBinary(op.sqr(toBigInteger(valueX.getText())).toString())));
+        Squared.addActionListener(e -> Answer.setText(toBinary(op.sqr(toBigInteger(valueX.getText())))));
 
-        Factorial.addActionListener(e -> Answer.setText(toBinary(op.fac(toBigInteger(valueX.getText())).toString())));
+        Factorial.addActionListener(e -> Answer.setText(toBinary(op.fac(toBigInteger(valueX.getText())))));
 
-        Modulus.addActionListener(e -> Answer.setText(toBinary(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        Modulus.addActionListener(e -> Answer.setText(toBinary(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
 
-        greatestCommonDivisor.addActionListener(e -> Answer.setText(toBinary(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        greatestCommonDivisor.addActionListener(e -> Answer.setText(toBinary(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
 
-        leastCommonMultiple.addActionListener(e -> Answer.setText(toBinary(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())).toString())));
+        leastCommonMultiple.addActionListener(e -> Answer.setText(toBinary(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
     }
 }
