@@ -99,11 +99,28 @@ public class BigIntCalc extends JFrame implements ToBigInteger {
             }
         });
 
+        //Credit for Thread idea goes to Farzin Zaker on StackOverflow.com
         Power.addActionListener(e -> {
-            if(bs.checkString(valueX.getText(), valueY.getText())) {
-                Answer.setText(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
-            } else {
-                Answer.setText("Must enter integer String");
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if(bs.checkString(valueX.getText(), valueY.getText())) {
+                        Answer.setText(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+                    } else {
+                        Answer.setText("Must enter integer string");
+                    }
+                }
+            });
+            thread.start();
+            long endAfterTime = System.currentTimeMillis() + 2000;
+            while(thread.isAlive()) {
+                if(System.currentTimeMillis() > endAfterTime) {
+                    Answer.setText("Number too long");
+                    break;
+                }
+                try {
+                    Thread.sleep(500);
+                } catch(InterruptedException t) {}
             }
         });
 
@@ -124,10 +141,26 @@ public class BigIntCalc extends JFrame implements ToBigInteger {
         });
 
         Factorial.addActionListener(e -> {
-            if(bs.checkString(valueX.getText())) {
-                Answer.setText(op.fac(toBigInteger(valueX.getText())));
-            } else {
-                Answer.setText("Must enter integer String");
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if(bs.checkString(valueX.getText())) {
+                        Answer.setText(op.fac(toBigInteger(valueX.getText())));
+                    } else {
+                        Answer.setText("Must enter integer string");
+                    }
+                }
+            });
+            thread.start();
+            long endAfterTime = System.currentTimeMillis() + 2000;
+            while(thread.isAlive()) {
+                if(System.currentTimeMillis() > endAfterTime) {
+                    Answer.setText("Number too long");
+                    break;
+                }
+                try {
+                    Thread.sleep(500);
+                } catch(InterruptedException t) {}
             }
         });
 

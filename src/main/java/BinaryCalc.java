@@ -105,10 +105,26 @@ public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
     });
 
         Power.addActionListener(e -> {
-            if(bs.checkString(valueX.getText(), valueY.getText())) {
-                Answer.setText(toBinary(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
-            } else {
-                Answer.setText("Must enter Binary String");
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if(bs.checkString(valueX.getText(), valueY.getText())) {
+                        Answer.setText(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+                    } else {
+                        Answer.setText("Error must enter binary string");
+                    }
+                }
+            });
+            thread.start();
+            long endAfterTime = System.currentTimeMillis() + 2000;
+            while(thread.isAlive()) {
+                if(System.currentTimeMillis() > endAfterTime) {
+                    Answer.setText("Number too long");
+                    break;
+                }
+                try {
+                    Thread.sleep(500);
+                } catch(InterruptedException t) {}
             }
     });
 
@@ -129,10 +145,26 @@ public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
         });
 
         Factorial.addActionListener(e -> {
-            if(bs.checkString(valueX.getText())) {
-                Answer.setText(toBinary(op.fac(toBigInteger(valueX.getText()))));
-            } else {
-                Answer.setText("Must enter Binary String");
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if(bs.checkString(valueX.getText())) {
+                        Answer.setText(op.fac(toBigInteger(valueX.getText())));
+                    } else {
+                        Answer.setText("Error must enter binary string");
+                    }
+                }
+            });
+            thread.start();
+            long endAfterTime = System.currentTimeMillis() + 2000;
+            while(thread.isAlive()) {
+                if(System.currentTimeMillis() > endAfterTime) {
+                    Answer.setText("Number too long");
+                    break;
+                }
+                try {
+                    Thread.sleep(500);
+                } catch(InterruptedException t) {}
             }
     });
 

@@ -4,6 +4,6 @@ public class BigIntStringChecker {
     }
 
     public boolean checkString(String valueX) {
-        return valueX.matches("[0-9-]");
+        return valueX.matches("[0-9-]+");
     }
 }

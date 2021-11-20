@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.math.BigInteger;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class HexCalc extends JFrame implements HexBigIntConversion  {
     JTextField Answer = new JTextField();
@@ -109,10 +110,26 @@ public class HexCalc extends JFrame implements HexBigIntConversion  {
         });
 
         Power.addActionListener(e -> {
-            if(bs.checkString(valueX.getText(), valueY.getText())) {
-                Answer.setText(toHex(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
-            } else {
-                Answer.setText("Must enter hex string");
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if(bs.checkString(valueX.getText(), valueY.getText())) {
+                        Answer.setText(toHex(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+                    } else {
+                        Answer.setText("Must enter hex string");
+                    }
+                }
+            });
+            thread.start();
+            long endAfterTime = System.currentTimeMillis() + 2000;
+            while(thread.isAlive()) {
+                if(System.currentTimeMillis() > endAfterTime) {
+                    Answer.setText("Number too long");
+                    break;
+                }
+                try {
+                    Thread.sleep(500);
+                } catch(InterruptedException t) {}
             }
         });
 
@@ -133,10 +150,26 @@ public class HexCalc extends JFrame implements HexBigIntConversion  {
         });
 
         Factorial.addActionListener(e -> {
-            if(bs.checkString(valueX.getText())) {
-                Answer.setText(toHex(op.fac(toBigInteger(valueX.getText()))));
-            } else {
-                Answer.setText("Must enter hex string");
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if(bs.checkString(valueX.getText())) {
+                        Answer.setText(op.fac(toBigInteger(valueX.getText())));
+                    } else {
+                        Answer.setText("Must enter hex string");
+                    }
+                }
+            });
+            thread.start();
+            long endAfterTime = System.currentTimeMillis() + 2000;
+            while(thread.isAlive()) {
+                if(System.currentTimeMillis() > endAfterTime) {
+                    Answer.setText("Number too long");
+                    break;
+                }
+                try {
+                    Thread.sleep(500);
+                } catch(InterruptedException t) {}
             }
         });
 
@@ -163,5 +196,9 @@ public class HexCalc extends JFrame implements HexBigIntConversion  {
                 Answer.setText("Must enter hex string");
             }
         });
+    }
+
+    public void process() {
+
     }
 }

@@ -101,10 +101,26 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
         });
 
         Power.addActionListener(e -> {
-            if(bs.checkString(valueX.getText())) {
-                Answer.setText(toDecimalString(op.pow(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText()))));
-            } else {
-                Answer.setText("Error must be decimal string");
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if(bs.checkString(valueX.getText(), valueY.getText())) {
+                        Answer.setText(op.pow(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())));
+                    } else {
+                        Answer.setText("Error must enter decimal string");
+                    }
+                }
+            });
+            thread.start();
+            long endAfterTime = System.currentTimeMillis() + 2000;
+            while(thread.isAlive()) {
+                if(System.currentTimeMillis() > endAfterTime) {
+                    Answer.setText("Number too long");
+                    break;
+                }
+                try {
+                    Thread.sleep(500);
+                } catch(InterruptedException t) {}
             }
         });
 
