@@ -14,6 +14,7 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
     }
 
     public DecimalCalc() {
+        BigDecimalStringChecker bs = new BigDecimalStringChecker();
         BigDecimalOperations op = new BigDecimalOperations();
 
         JFrame DecimalCalc = new JFrame();
@@ -67,20 +68,68 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
 
 
 
-        Addition.addActionListener(e -> Answer.setText(toDecimalString(op.add(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
+        Addition.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toDecimalString(op.add(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText()))));
+            } else {
+                Answer.setText("Error must be decimal string");
+            }
+        });
 
-        Subtraction.addActionListener(e -> Answer.setText(toDecimalString(op.sub(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
+        Subtraction.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toDecimalString(op.sub(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText()))));
+            } else {
+                Answer.setText("Error must be decimal string");
+            }
+        });
 
-        Multiplication.addActionListener(e -> Answer.setText(toDecimalString(op.mul(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
+        Multiplication.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toDecimalString(op.mul(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText()))));
+            } else {
+                Answer.setText("Error must be decimal string");
+            }
+        });
 
-        Division.addActionListener(e -> Answer.setText(toDecimalString(op.div(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
+        Division.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toDecimalString(op.div(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText()))));
+            } else {
+                Answer.setText("Error must be decimal string");
+            }
+        });
 
-        Power.addActionListener(e -> Answer.setText(toDecimalString(op.pow(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
+        Power.addActionListener(e -> {
+            if(bs.checkString(valueX.getText())) {
+                Answer.setText(toDecimalString(op.pow(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText()))));
+            } else {
+                Answer.setText("Error must be decimal string");
+            }
+        });
 
-        squareRoot.addActionListener(e -> Answer.setText(toDecimalString(op.rot(toBigDecimal(valueX.getText())))));
+        squareRoot.addActionListener(e -> {
+            if(bs.checkString(valueX.getText())) {
+                Answer.setText(toDecimalString(op.rot(toBigDecimal(valueX.getText()))));
+            } else {
+                Answer.setText("Error must be decimal string");
+            }
+        });
 
-        Squared.addActionListener(e -> Answer.setText(toDecimalString(op.sqr(toBigDecimal(valueX.getText())))));
+        Squared.addActionListener(e -> {
+            if(bs.checkString(valueX.getText())) {
+                Answer.setText(toDecimalString(op.sqr(toBigDecimal(valueX.getText()))));
+            } else {
+                Answer.setText("Error must be decimal string");
+            }
+        });
 
-        Modulus.addActionListener(e -> Answer.setText(toDecimalString(op.MOD(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText())))));
+        Modulus.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toDecimalString(op.MOD(toBigDecimal(valueX.getText()), toBigDecimal(valueY.getText()))));
+            } else {
+                Answer.setText("Error must be decimal string");
+            }
+        });
     }
 }
