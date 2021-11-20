@@ -18,6 +18,7 @@ public class HexCalc extends JFrame implements HexBigIntConversion  {
     }
 
     public HexCalc() {
+        HexStringChecker bs = new HexStringChecker();
         BigIntOperations op = new BigIntOperations();
 
         JFrame HexCalc = new JFrame();
@@ -75,26 +76,92 @@ public class HexCalc extends JFrame implements HexBigIntConversion  {
         buttonPanel.add(greatestCommonDivisor);
         buttonPanel.add(leastCommonMultiple);
 
-        Addition.addActionListener(e ->  Answer.setText(toHex(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
+        Addition.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toHex(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter hex string");
+            }
+        });
 
-        Subtraction.addActionListener(e -> Answer.setText(toHex(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
+        Subtraction.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toHex(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter hex string");
+            }
+        });
 
-        Multiplication.addActionListener(e -> Answer.setText(toHex(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
+        Multiplication.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toHex(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter hex string");
+            }
+        });
 
-        Division.addActionListener(e -> Answer.setText(toHex(op.div(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
+        Division.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toHex(op.div(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter hex string");
+            }
+        });
 
-        Power.addActionListener(e -> Answer.setText(toHex(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
+        Power.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toHex(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter hex string");
+            }
+        });
 
-        squareRoot.addActionListener(e -> Answer.setText(toHex(op.rot(toBigInteger(valueX.getText()))).toUpperCase(Locale.ROOT)));
+        squareRoot.addActionListener(e -> {
+            if(bs.checkString(valueX.getText())) {
+                Answer.setText(toHex(op.rot(toBigInteger(valueX.getText()))));
+            } else {
+                Answer.setText("Must enter hex string");
+            }
+        });
 
-        Squared.addActionListener(e -> Answer.setText(toHex(op.sqr(toBigInteger(valueX.getText()))).toUpperCase(Locale.ROOT)));
+        Squared.addActionListener(e -> {
+            if(bs.checkString(valueX.getText())) {
+                Answer.setText(toHex(op.sqr(toBigInteger(valueX.getText()))));
+            } else {
+                Answer.setText("Must enter hex string");
+            }
+        });
 
-        Factorial.addActionListener(e -> Answer.setText(toHex(op.fac(toBigInteger(valueX.getText()))).toUpperCase(Locale.ROOT)));
+        Factorial.addActionListener(e -> {
+            if(bs.checkString(valueX.getText())) {
+                Answer.setText(toHex(op.fac(toBigInteger(valueX.getText()))));
+            } else {
+                Answer.setText("Must enter hex string");
+            }
+        });
 
-        Modulus.addActionListener(e -> Answer.setText(toHex(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
+        Modulus.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toHex(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter hex string");
+            }
+        });
 
-        greatestCommonDivisor.addActionListener(e -> Answer.setText(toHex(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
+        greatestCommonDivisor.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toHex(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter hex string");
+            }
+        });
 
-        leastCommonMultiple.addActionListener(e -> Answer.setText(toHex(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))).toUpperCase(Locale.ROOT)));
+        leastCommonMultiple.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toHex(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter hex string");
+            }
+        });
     }
 }

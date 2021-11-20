@@ -11,6 +11,7 @@ public class BigIntCalc extends JFrame implements ToBigInteger {
 
     public BigIntCalc() {
         BigIntOperations op = new BigIntOperations();
+        BigIntStringChecker bs = new BigIntStringChecker();
 
         JFrame BigIntCalc = new JFrame();
         setSize(800, 200);
@@ -66,26 +67,92 @@ public class BigIntCalc extends JFrame implements ToBigInteger {
         buttonPanel.add(greatestCommonDivisor);
         buttonPanel.add(leastCommonMultiple);
 
-        Addition.addActionListener(e -> Answer.setText(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+        Addition.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+            } else {
+                Answer.setText("Must enter integer String");
+            }
+        });
 
-        Subtraction.addActionListener(e -> Answer.setText(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+        Subtraction.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+            } else {
+                Answer.setText("Must enter integer String");
+            }
+        });
 
-        Multiplication.addActionListener(e -> Answer.setText(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+        Multiplication.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+            } else {
+                Answer.setText("Must enter integer String");
+            }
+        });
 
-        Division.addActionListener(e -> Answer.setText(op.div(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+        Division.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(op.div(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+            } else {
+                Answer.setText("Must enter integer String");
+            }
+        });
 
-        Power.addActionListener(e -> Answer.setText(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+        Power.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+            } else {
+                Answer.setText("Must enter integer String");
+            }
+        });
 
-        squareRoot.addActionListener(e -> Answer.setText(op.rot(toBigInteger(valueX.getText()))));
+        squareRoot.addActionListener(e -> {
+            if(bs.checkString(valueX.getText())) {
+                Answer.setText(op.rot(toBigInteger(valueX.getText())));
+            } else {
+                Answer.setText("Must enter integer String");
+            }
+        });
 
-        Squared.addActionListener(e -> Answer.setText(op.sqr(toBigInteger(valueX.getText()))));
+        Squared.addActionListener(e -> {
+            if(bs.checkString(valueX.getText())) {
+                Answer.setText(op.sqr(toBigInteger(valueX.getText())));
+            } else {
+                Answer.setText("Must enter integer String");
+            }
+        });
 
-        Factorial.addActionListener(e -> Answer.setText(op.fac(toBigInteger(valueX.getText()))));
+        Factorial.addActionListener(e -> {
+            if(bs.checkString(valueX.getText())) {
+                Answer.setText(op.fac(toBigInteger(valueX.getText())));
+            } else {
+                Answer.setText("Must enter integer String");
+            }
+        });
 
-        Modulus.addActionListener(e -> Answer.setText(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+        Modulus.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+            } else {
+                Answer.setText("Must enter integer String");
+            }
+        });
 
-        greatestCommonDivisor.addActionListener(e -> Answer.setText(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+        greatestCommonDivisor.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+            } else {
+                Answer.setText("Must enter integer String");
+            }
+        });
 
-        leastCommonMultiple.addActionListener(e -> Answer.setText(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+        leastCommonMultiple.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+            } else {
+                Answer.setText("Must enter integer String");
+            }
+        });
     }
 }

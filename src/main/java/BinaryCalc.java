@@ -15,6 +15,7 @@ public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
     }
 
     public BinaryCalc() {
+        BinaryStringChecker bs = new BinaryStringChecker();
         BigIntOperations op = new BigIntOperations();
 
         JFrame BinaryCalc = new JFrame();
@@ -71,26 +72,92 @@ public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
         buttonPanel.add(greatestCommonDivisor);
         buttonPanel.add(leastCommonMultiple);
 
-        Addition.addActionListener(e -> Answer.setText(toBinary(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
+        Addition.addActionListener(e -> {
+                if(bs.checkString(valueX.getText(), valueY.getText())) {
+                    Answer.setText(toBinary(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+                } else {
+                    Answer.setText("Must enter Binary String");
+                }
+    });
 
-        Subtraction.addActionListener(e -> Answer.setText(toBinary(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
+        Subtraction.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toBinary(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter Binary String");
+            }
+        });
 
-        Multiplication.addActionListener(e -> Answer.setText(toBinary(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
+        Multiplication.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toBinary(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter Binary String");
+            }
+    });
 
-        Division.addActionListener(e -> Answer.setText(toBinary(op.div(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
+        Division.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toBinary(op.div(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter Binary String");
+            }
+    });
 
-        Power.addActionListener(e -> Answer.setText(toBinary(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
+        Power.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toBinary(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter Binary String");
+            }
+    });
 
-        squareRoot.addActionListener(e -> Answer.setText(toBinary(op.rot(toBigInteger(valueX.getText())))));
+        squareRoot.addActionListener(e -> {
+            if(bs.checkString(valueX.getText())) {
+                Answer.setText(toBinary(op.rot(toBigInteger(valueX.getText()))));
+            } else {
+                Answer.setText("Must enter Binary String");
+            }
+        });
 
-        Squared.addActionListener(e -> Answer.setText(toBinary(op.sqr(toBigInteger(valueX.getText())))));
+        Squared.addActionListener(e -> {
+            if(bs.checkString(valueX.getText())) {
+                Answer.setText(toBinary(op.sqr(toBigInteger(valueX.getText()))));
+            } else {
+                Answer.setText("Must enter Binary String");
+            }
+        });
 
-        Factorial.addActionListener(e -> Answer.setText(toBinary(op.fac(toBigInteger(valueX.getText())))));
+        Factorial.addActionListener(e -> {
+            if(bs.checkString(valueX.getText())) {
+                Answer.setText(toBinary(op.fac(toBigInteger(valueX.getText()))));
+            } else {
+                Answer.setText("Must enter Binary String");
+            }
+    });
 
-        Modulus.addActionListener(e -> Answer.setText(toBinary(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
+        Modulus.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toBinary(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter Binary String");
+            }
+        });
 
-        greatestCommonDivisor.addActionListener(e -> Answer.setText(toBinary(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
+        greatestCommonDivisor.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toBinary(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter Binary String");
+            }
+        });
 
-        leastCommonMultiple.addActionListener(e -> Answer.setText(toBinary(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())))));
+        leastCommonMultiple.addActionListener(e -> {
+            if(bs.checkString(valueX.getText(), valueY.getText())) {
+                Answer.setText(toBinary(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+            } else {
+                Answer.setText("Must enter Binary String");
+            }
+    });
     }
 }
