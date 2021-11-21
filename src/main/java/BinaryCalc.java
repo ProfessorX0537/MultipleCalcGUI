@@ -2,18 +2,37 @@ import javax.swing.*;
 import java.awt.*;
 import java.math.BigInteger;
 
+/**
+ * Will create a window with GUI for user to make calculations with Binary strings
+ */
 public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
+    /**
+     * Overrides {@link ToBigInteger} and takes string return BigInteger
+     * @param s string passed to be converted
+     * @return BigInteger representation of passed string
+     */
     @Override
     public BigInteger toBigInteger(String s) {
         return new BigInteger(s, 2);
     }
 
+    /**
+     * Overrides {@link BinaryBigIntConversion} takes a BigInteger String representation
+     * @param s BigInteger string
+     * @return binary string
+     */
     @Override
     public String toBinary(String s) {
         BigInteger big = new BigInteger(s);
         return big.toString(2);
     }
 
+    /**
+     * Creates a window with the text fields for user input as well as an output field for
+     * the users calculations. Provides a series of buttons which will perform the associated
+     * operations on the binary values. It also will handle a series of potential user input errors.
+     * Such as incorrect string type numbers that are to large and illegal math errors.
+     */
     public BinaryCalc() {
         BinaryStringChecker bs = new BinaryStringChecker();
         BigIntOperations op = new BigIntOperations();

@@ -2,17 +2,35 @@ import javax.swing.*;
 import java.awt.*;
 import java.math.BigDecimal;
 
+/**
+ * Creates the GUI for the user to be able to work make calculations in BigDecimal
+ */
 public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
+    /**
+     * Converts given string to a BigDecimal
+     * @param s user string passed to be converted
+     * @return returns the BigDecimal version of a passed string
+     */
     @Override
     public BigDecimal toBigDecimal(String s) {
         return new BigDecimal(s);
     }
 
+    /**
+     * Cnverts a given BigDecimal to a string
+     * @param s BigDecimal passed to be converged to a string
+     * @return returns the String representation a BigDecimal
+     */
     @Override
     public String toDecimalString(String s) {
         return new BigDecimal(s).toString();
     }
 
+    /**
+     * Creates a window with the text fields for user input as well as an output field for
+     * the users calculations. Provides a series of buttons which will perform the associated
+     * operations on the given decimal values. It also will handle a series of potential user input errors.
+     */
     public DecimalCalc() {
         BigDecimalStringChecker bs = new BigDecimalStringChecker();
         BigDecimalOperations op = new BigDecimalOperations();
@@ -27,12 +45,10 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
         basePanel.setVisible(true);
         add(basePanel);
 
-        //needs label
         JTextField valueX = new JTextField();
         valueX.setColumns(50);
         basePanel.add(valueX);
 
-        //needs label
         JTextField valueY = new JTextField();
         valueY.setColumns(50);
         basePanel.add(valueY);

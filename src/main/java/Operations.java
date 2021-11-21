@@ -1,3 +1,7 @@
+/**
+ * Abstract class that is subclassed by {@link BigIntOperations} and {@link BigDecimalOperations}
+ * which are accessed by the calculators to perform the math operations.
+ */
 public abstract class Operations {
     public String add() {
         return null;

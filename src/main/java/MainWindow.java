@@ -1,27 +1,48 @@
+import org.w3c.dom.Text;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
+/**
+ * <h1>Multiple Calc w/GUI</h1>
+ *This program supports four different calculators (Binary, Hexadecimal, Big Integer, Big Decimal)
+ * and the following operations (Addition, Subtraction, Multiplication, Division, Power, Square Root,
+ * Factorial, Modulus, Greatest Common Factor, Least Common Factorial).
+ *
+ * @author Xavier Hines
+ * @version 1.0
+ * @since 11/20/21
+ */
+
 public class MainWindow extends JFrame {
+    /**
+     * Create Instance variable of each calculator
+     */
     private BinaryCalc BC = new BinaryCalc();
     private BigIntCalc BIC = new BigIntCalc();
     private HexCalc HC = new HexCalc();
     private DecimalCalc DC = new DecimalCalc();
 
+    /**
+     * MainWindow will establish the starting window of the program. It contains radio buttons
+     * that will open new windows giving users access to the selected radio buttons calculator.
+     * In addition to that there is a <code>JMenu</code> created her that will give the user the
+     * ability to shut down the program and access the help/about windows.
+     */
     public MainWindow() {
         JFrame startFrame = new JFrame();
-        setSize(800, 600);
+        setSize(600, 200);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        JPanel basePanel = new JPanel(new GridLayout(2,1));
+        JPanel basePanel = new JPanel(new BorderLayout());
         basePanel.setBackground(Color.GRAY);
         basePanel.setVisible(true);
 
         add(basePanel);
 
-        JPanel center = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel center = new JPanel();
         center.setBackground(Color.GRAY);
         JTextArea title = new JTextArea();
         title.setFont(title.getFont().deriveFont(18.0f));
@@ -29,21 +50,44 @@ public class MainWindow extends JFrame {
         title.setEditable(false);
         title.setText("Multiple Calculator Home Page");
         center.add(title);
-        basePanel.add(center);
+        basePanel.add(center, BorderLayout.NORTH);
 
-        //TODO description of program put in menu
-        // -1 value means that there was an error and user should visit help menu
-//        JTextArea description = new JTextArea();
-//        description.setBackground(Color.GRAY);
-//        description.setEditable(false);
-//        description.setLineWrap(true);
-//        description.setSize(600, 100);
-//        description.setText("This is a program that will give you access to four different types of calculators." +
-//                " They are Hexadecimal, Binary, Decimal and BigInteger which all preform the provided operations" +
-//                " in their respective forms. Selecting a calculator below will open up a new window with the respective Calculator.");
+        var menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+
+        var calculator = new JMenu("Exit");
+        menuBar.add(calculator);
+
+        var exitAction = new AbstractAction("Exit") {
+            public void actionPerformed(ActionEvent event) {
+                System.exit(0);
+            }
+        };
+        JMenuItem exitItem = calculator.add(exitAction);
+
+        var help = new JMenu("Help");
+        menuBar.add(help);
+
+        var helpAction = new AbstractAction("Help") {
+            public void actionPerformed(ActionEvent event) {
+                HelpWindow h = new HelpWindow();
+                h.setVisible(true);
+            }
+        };
+        JMenuItem helpItem = help.add(helpAction);
 
 
-        //radio buttons for choice of calc
+        var about = new JMenu("About");
+        menuBar.add(about);
+
+        var aboutAction = new AbstractAction("About") {
+            public void actionPerformed(ActionEvent event) {
+                AboutWindow a = new AboutWindow();
+                a.setVisible(true);
+            }
+        };
+        JMenuItem aboutItem = about.add(aboutAction);
+
         JRadioButton binaryCalcButton = new JRadioButton("Binary");
         binaryCalcButton.setMnemonic(KeyEvent.VK_B);
         binaryCalcButton.setBackground(Color.GRAY);
@@ -67,6 +111,7 @@ public class MainWindow extends JFrame {
         group.add(hexCalcButton);
         group.add(decimalCalcButton);
 
+
         JPanel radioPanel = new JPanel();
         radioPanel.add(binaryCalcButton);
         radioPanel.add(hexCalcButton);
@@ -75,9 +120,8 @@ public class MainWindow extends JFrame {
         radioPanel.setVisible(true);
         radioPanel.setBackground(Color.GRAY);
 
-        basePanel.add(radioPanel);
+        basePanel.add(radioPanel, BorderLayout.CENTER);
 
-        //Actionlisteners for radio buttons
         binaryCalcButton.addActionListener(e -> {
             BIC.setVisible(false);
             DC.setVisible(false);

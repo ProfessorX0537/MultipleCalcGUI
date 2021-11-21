@@ -1,23 +1,40 @@
 import javax.swing.*;
 import java.awt.*;
 import java.math.BigInteger;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
+/**
+ * Creates the GUI for Hexadecimal calculator so that user may perform
+ * calculations in hex.
+ */
 public class HexCalc extends JFrame implements HexBigIntConversion  {
     JTextField Answer = new JTextField();
 
+    /**
+     * Overrides toBigInteger from {@link ToBigInteger} to convert string to BigInteger
+     * @param s takes a string from user
+     * @return The BigInteger version of the passed string
+     */
     @Override
     public BigInteger toBigInteger(String s) {
         return new BigInteger(s, 16);
     }
 
+    /**
+     * Overrides the toHex from {@link HexBigIntConversion} to convert string to a hex string
+     * @param s user input handed to the converter
+     * @return the hex string representation of a given string
+     */
     @Override
     public String toHex(String s) {
         BigInteger big = new BigInteger(s);
         return big.toString(16);
     }
 
+    /**
+     * Creates a window with the text fields for user input as well as an output field for
+     * the users calculations. Provides a series of buttons which will perform the associated
+     * operations on the given values. It also will handle a series of potential user input errors.
+     */
     public HexCalc() {
         HexStringChecker bs = new HexStringChecker();
         BigIntOperations op = new BigIntOperations();
@@ -26,7 +43,6 @@ public class HexCalc extends JFrame implements HexBigIntConversion  {
         setSize(800, 200);
         setTitle("Hexadecimal Calculator");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        //TODO Us long text bar with scroll bar for long boi numbers
 
         JPanel basePanel = new JPanel();
         basePanel.setBackground(Color.GRAY);
