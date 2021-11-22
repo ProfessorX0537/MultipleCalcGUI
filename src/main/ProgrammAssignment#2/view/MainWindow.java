@@ -1,3 +1,5 @@
+package view;
+
 import org.w3c.dom.Text;
 
 import javax.swing.*;
@@ -26,7 +28,7 @@ public class MainWindow extends JFrame {
     private DecimalCalc DC = new DecimalCalc();
 
     /**
-     * MainWindow will establish the starting window of the program. It contains radio buttons
+     * View.MainWindow will establish the starting window of the program. It contains radio buttons
      * that will open new windows giving users access to the selected radio buttons calculator.
      * In addition to that there is a <code>JMenu</code> created her that will give the user the
      * ability to shut down the program and access the help/about windows.

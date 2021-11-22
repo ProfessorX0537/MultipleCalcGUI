@@ -1,3 +1,10 @@
+package model;
+
+import model.BinaryBigIntConversion;
+import model.DecimalBigIntConversion;
+import model.HexBigIntConversion;
+import view.BigIntCalc;
+
 import java.math.BigInteger;
 
 /**

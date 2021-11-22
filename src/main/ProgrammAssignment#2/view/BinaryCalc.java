@@ -1,21 +1,52 @@
+package view;
+
+import controller.BigIntOperations;
+import controller.BinaryStringChecker;
+import model.BinaryBigIntConversion;
+import model.ToBigInteger;
+
 import javax.swing.*;
 import java.awt.*;
 import java.math.BigInteger;
 
-public class BigIntCalc extends JFrame implements ToBigInteger {
-
+/**
+ * Will create a window with GUI for user to make calculations with Binary strings
+ */
+public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
+    /**
+     * Overrides {@link ToBigInteger} and takes string return BigInteger
+     * @param s string passed to be converted
+     * @return BigInteger representation of passed string
+     */
     @Override
     public BigInteger toBigInteger(String s) {
-        return new BigInteger(s);
+        return new BigInteger(s, 2);
     }
 
-    public BigIntCalc() {
-        BigIntOperations op = new BigIntOperations();
-        BigIntStringChecker bs = new BigIntStringChecker();
+    /**
+     * Overrides {@link BinaryBigIntConversion} takes a BigInteger String representation
+     * @param s BigInteger string
+     * @return binary string
+     */
+    @Override
+    public String toBinary(String s) {
+        BigInteger big = new BigInteger(s);
+        return big.toString(2);
+    }
 
-        JFrame BigIntCalc = new JFrame();
+    /**
+     * Creates a window with the text fields for user input as well as an output field for
+     * the users calculations. Provides a series of buttons which will perform the associated
+     * operations on the binary values. It also will handle a series of potential user input errors.
+     * Such as incorrect string type numbers that are to large and illegal math errors.
+     */
+    public BinaryCalc() {
+        BinaryStringChecker bs = new BinaryStringChecker();
+        BigIntOperations op = new BigIntOperations();
+
+        JFrame BinaryCalc = new JFrame();
         setSize(800, 200);
-        setTitle("Big Integer Calculator");
+        setTitle("Binary Calculator");
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         JPanel basePanel = new JPanel();
@@ -68,38 +99,38 @@ public class BigIntCalc extends JFrame implements ToBigInteger {
         buttonPanel.add(leastCommonMultiple);
 
         Addition.addActionListener(e -> {
-            if(bs.checkString(valueX.getText(), valueY.getText())) {
-                Answer.setText(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
-            } else {
-                Answer.setText("Must enter integer String");
-            }
-        });
+                if(bs.checkString(valueX.getText(), valueY.getText())) {
+                    Answer.setText(toBinary(op.add(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
+                } else {
+                    Answer.setText("Must enter Binary String");
+                }
+    });
 
         Subtraction.addActionListener(e -> {
             if(bs.checkString(valueX.getText(), valueY.getText())) {
-                Answer.setText(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+                Answer.setText(toBinary(op.sub(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
             } else {
-                Answer.setText("Must enter integer String");
+                Answer.setText("Must enter Binary String");
             }
         });
 
         Multiplication.addActionListener(e -> {
             if(bs.checkString(valueX.getText(), valueY.getText())) {
-                Answer.setText(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+                Answer.setText(toBinary(op.mul(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
             } else {
-                Answer.setText("Must enter integer String");
+                Answer.setText("Must enter Binary String");
             }
-        });
+    });
 
         Division.addActionListener(e -> {
             if(bs.checkString(valueX.getText(), valueY.getText())) {
-                Answer.setText(op.div(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+                Answer.setText(toBinary(op.div(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
             } else {
-                Answer.setText("Must enter integer String");
+                Answer.setText("Must enter Binary String");
             }
-        });
+    });
 
-        //Credit for Thread idea goes to Farzin Zaker on StackOverflow.com
+        //Credit for concurrency thread idea goes to Farzin Zaker on StackOverflow.com
         Power.addActionListener(e -> {
             Thread thread = new Thread(new Runnable() {
                 @Override
@@ -107,7 +138,7 @@ public class BigIntCalc extends JFrame implements ToBigInteger {
                     if(bs.checkString(valueX.getText(), valueY.getText())) {
                         Answer.setText(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
                     } else {
-                        Answer.setText("Must enter integer string");
+                        Answer.setText("Error must enter binary string");
                     }
                 }
             });
@@ -122,21 +153,21 @@ public class BigIntCalc extends JFrame implements ToBigInteger {
                     Thread.sleep(500);
                 } catch(InterruptedException t) {}
             }
-        });
+    });
 
         squareRoot.addActionListener(e -> {
             if(bs.checkString(valueX.getText())) {
-                Answer.setText(op.rot(toBigInteger(valueX.getText())));
+                Answer.setText(toBinary(op.rot(toBigInteger(valueX.getText()))));
             } else {
-                Answer.setText("Must enter integer String");
+                Answer.setText("Must enter Binary String");
             }
         });
 
         Squared.addActionListener(e -> {
             if(bs.checkString(valueX.getText())) {
-                Answer.setText(op.sqr(toBigInteger(valueX.getText())));
+                Answer.setText(toBinary(op.sqr(toBigInteger(valueX.getText()))));
             } else {
-                Answer.setText("Must enter integer String");
+                Answer.setText("Must enter Binary String");
             }
         });
 
@@ -147,7 +178,7 @@ public class BigIntCalc extends JFrame implements ToBigInteger {
                     if(bs.checkString(valueX.getText())) {
                         Answer.setText(op.fac(toBigInteger(valueX.getText())));
                     } else {
-                        Answer.setText("Must enter integer string");
+                        Answer.setText("Error must enter binary string");
                     }
                 }
             });
@@ -162,30 +193,30 @@ public class BigIntCalc extends JFrame implements ToBigInteger {
                     Thread.sleep(500);
                 } catch(InterruptedException t) {}
             }
-        });
+    });
 
         Modulus.addActionListener(e -> {
             if(bs.checkString(valueX.getText(), valueY.getText())) {
-                Answer.setText(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+                Answer.setText(toBinary(op.MOD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
             } else {
-                Answer.setText("Must enter integer String");
+                Answer.setText("Must enter Binary String");
             }
         });
 
         greatestCommonDivisor.addActionListener(e -> {
             if(bs.checkString(valueX.getText(), valueY.getText())) {
-                Answer.setText(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+                Answer.setText(toBinary(op.GCD(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
             } else {
-                Answer.setText("Must enter integer String");
+                Answer.setText("Must enter Binary String");
             }
         });
 
         leastCommonMultiple.addActionListener(e -> {
             if(bs.checkString(valueX.getText(), valueY.getText())) {
-                Answer.setText(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+                Answer.setText(toBinary(op.LCM(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
             } else {
-                Answer.setText("Must enter integer String");
+                Answer.setText("Must enter Binary String");
             }
-        });
+    });
     }
 }

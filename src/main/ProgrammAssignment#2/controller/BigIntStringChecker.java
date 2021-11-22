@@ -1,3 +1,5 @@
+package controller;
+
 /**
  * Checks user input to make sure that they are BigIneger strings
  */

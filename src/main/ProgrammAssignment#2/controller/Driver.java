@@ -1,5 +1,9 @@
+package controller;
+
+import view.MainWindow;
+
 /**
- * Driver is simply responsible for the initialization of program.
+ * controller.Driver is simply responsible for the initialization of program.
  */
 public class Driver {
     public static void main(String[] args) {

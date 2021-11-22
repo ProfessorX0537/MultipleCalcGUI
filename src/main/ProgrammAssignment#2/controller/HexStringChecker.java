@@ -1,3 +1,5 @@
+package controller;
+
 public class HexStringChecker {
     /**
      * Checks user input to make sure it is within the type of the calculator they selected
@@ -10,6 +12,7 @@ public class HexStringChecker {
     }
 
     /**
+     * Note: dynamic polymorphism
      * Checks user input to make sure it is within the data type for a single input
      * @param valueX String taken from the first user input
      * @return boolean value of whether it is within the

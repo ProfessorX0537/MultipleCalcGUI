@@ -1,3 +1,5 @@
+package controller;
+
 /**
  * Performs checks of on user input to make sure that it is a Binary string
  */

@@ -1,3 +1,8 @@
+package model;
+
+import controller.BigDecimalOperations;
+import controller.BigIntOperations;
+
 /**
  * Abstract class that is subclassed by {@link BigIntOperations} and {@link BigDecimalOperations}
  * which are accessed by the calculators to perform the math operations.

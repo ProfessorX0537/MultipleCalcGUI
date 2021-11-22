@@ -1,3 +1,5 @@
+package model;
+
 public interface HexBigIntConversion extends ToBigInteger {
     /**
      * extends BigInteger by adding a conversion method of toHex

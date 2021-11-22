@@ -1,3 +1,10 @@
+package view;
+
+import controller.BigIntOperations;
+import controller.HexStringChecker;
+import model.HexBigIntConversion;
+import model.ToBigInteger;
+
 import javax.swing.*;
 import java.awt.*;
 import java.math.BigInteger;
@@ -6,7 +13,7 @@ import java.math.BigInteger;
  * Creates the GUI for Hexadecimal calculator so that user may perform
  * calculations in hex.
  */
-public class HexCalc extends JFrame implements HexBigIntConversion  {
+public class HexCalc extends JFrame implements HexBigIntConversion {
     JTextField Answer = new JTextField();
 
     /**
@@ -125,6 +132,7 @@ public class HexCalc extends JFrame implements HexBigIntConversion  {
             }
         });
 
+        //Credit for concurrency thread idea goes to Farzin Zaker on StackOverflow.com
         Power.addActionListener(e -> {
             Thread thread = new Thread(new Runnable() {
                 @Override

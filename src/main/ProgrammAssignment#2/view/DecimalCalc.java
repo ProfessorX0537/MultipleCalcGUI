@@ -1,3 +1,9 @@
+package view;
+
+import controller.BigDecimalOperations;
+import controller.BigDecimalStringChecker;
+import model.DecimalBigIntConversion;
+
 import javax.swing.*;
 import java.awt.*;
 import java.math.BigDecimal;
@@ -116,6 +122,7 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
             }
         });
 
+        //Credit for concurrency thread idea goes to Farzin Zaker on StackOverflow.com
         Power.addActionListener(e -> {
             Thread thread = new Thread(new Runnable() {
                 @Override
