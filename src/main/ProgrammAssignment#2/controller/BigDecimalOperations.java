@@ -9,7 +9,7 @@ import java.math.MathContext;
  * Handles all the operations for {@link view.DecimalCalc}
  */
 public class BigDecimalOperations extends Operations {
-    MathContext rnd = new MathContext(20);
+    final static MathContext rnd = new MathContext(20);
 
     /**
      * Takes to values passed and adds them
