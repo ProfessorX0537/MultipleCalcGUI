@@ -9,5 +9,8 @@
         <module name="MultipleCalcGUI" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="MultipleCalcGUI" target="15" />
+    </bytecodeTargetLevel>
   </component>
 </project>
