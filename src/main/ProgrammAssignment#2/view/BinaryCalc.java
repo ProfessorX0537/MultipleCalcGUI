@@ -34,6 +34,8 @@ public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
         return big.toString(2);
     }
 
+    private final static BinaryStringChecker bs = new BinaryStringChecker();
+    private final static BigIntOperations op = new BigIntOperations();
     /**
      * Creates a window with the text fields for user input as well as an output field for
      * the users calculations. Provides a series of buttons which will perform the associated
@@ -41,9 +43,6 @@ public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
      * Such as incorrect string type numbers that are to large and illegal math errors.
      */
     public BinaryCalc() {
-        BinaryStringChecker bs = new BinaryStringChecker();
-        BigIntOperations op = new BigIntOperations();
-
         JFrame BinaryCalc = new JFrame();
         setSize(800, 200);
         setTitle("Binary Calculator");

@@ -37,15 +37,14 @@ public class HexCalc extends JFrame implements HexBigIntConversion {
         return big.toString(16);
     }
 
+    private final static HexStringChecker bs = new HexStringChecker();
+    private final static BigIntOperations op = new BigIntOperations();
     /**
      * Creates a window with the text fields for user input as well as an output field for
      * the users calculations. Provides a series of buttons which will perform the associated
      * operations on the given values. It also will handle a series of potential user input errors.
      */
     public HexCalc() {
-        HexStringChecker bs = new HexStringChecker();
-        BigIntOperations op = new BigIntOperations();
-
         JFrame HexCalc = new JFrame();
         setSize(800, 200);
         setTitle("Hexadecimal Calculator");

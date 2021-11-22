@@ -22,10 +22,10 @@ public class MainWindow extends JFrame {
     /**
      * Create Instance variable of each calculator
      */
-    private BinaryCalc BC = new BinaryCalc();
-    private BigIntCalc BIC = new BigIntCalc();
-    private HexCalc HC = new HexCalc();
-    private DecimalCalc DC = new DecimalCalc();
+    private final static BinaryCalc BC = new BinaryCalc();
+    private final static BigIntCalc BIC = new BigIntCalc();
+    private final static HexCalc HC = new HexCalc();
+    private final static DecimalCalc DC = new DecimalCalc();
 
     /**
      * View.MainWindow will establish the starting window of the program. It contains radio buttons

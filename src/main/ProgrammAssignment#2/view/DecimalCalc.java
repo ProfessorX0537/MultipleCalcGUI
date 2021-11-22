@@ -32,14 +32,15 @@ public class DecimalCalc extends JFrame implements DecimalBigIntConversion {
         return new BigDecimal(s).toString();
     }
 
+    private final static BigDecimalStringChecker bs = new BigDecimalStringChecker();
+    private final static BigDecimalOperations op = new BigDecimalOperations();
     /**
      * Creates a window with the text fields for user input as well as an output field for
      * the users calculations. Provides a series of buttons which will perform the associated
      * operations on the given decimal values. It also will handle a series of potential user input errors.
      */
     public DecimalCalc() {
-        BigDecimalStringChecker bs = new BigDecimalStringChecker();
-        BigDecimalOperations op = new BigDecimalOperations();
+
 
         JFrame DecimalCalc = new JFrame();
         setSize(800, 200);

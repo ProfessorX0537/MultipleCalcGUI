@@ -22,6 +22,9 @@ public class BigIntCalc extends JFrame implements ToBigInteger {
         return new BigInteger(s);
     }
 
+    private final static BigIntOperations op = new BigIntOperations();
+    private final static BigIntStringChecker bs = new BigIntStringChecker();
+
     /**
      * Creates a window with the text fields for user input as well as an output field for
      * the users calculations. Provides a series of buttons which will perform the associated
@@ -29,8 +32,7 @@ public class BigIntCalc extends JFrame implements ToBigInteger {
      * Such as incorrect string type, numbers that are too large, and illegal math errors.
      */
     public BigIntCalc() {
-        BigIntOperations op = new BigIntOperations();
-        BigIntStringChecker bs = new BigIntStringChecker();
+
 
         JFrame BigIntCalc = new JFrame();
         setSize(800, 200);
