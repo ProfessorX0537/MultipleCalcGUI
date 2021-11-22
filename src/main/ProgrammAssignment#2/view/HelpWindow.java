@@ -11,7 +11,7 @@ public class HelpWindow extends JFrame {
      */
     public HelpWindow() {
         JFrame help = new JFrame();
-        help.setTitle("Calculator Operation Help");
+        setTitle("Help");
         setSize(500,200);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
@@ -24,11 +24,12 @@ public class HelpWindow extends JFrame {
         helpPanel.add(textBox);
 
         textBox.setText("""
+                                                                                HELP
                 If you receive a '-1' on an operation you likely attempted to perform an illegal math
                 operation. If the answer to your operation takes longer than 2 seconds to\s
                 complete program will return that solution was too large. You will also receive
                 error message if you attempt to input unacceptable string types. If you get any
-                 notifications please closely evaluate your inputs to make sure they follow calc
+                notifications please closely evaluate your inputs to make sure they follow calc
                 and arithmetical guidelines.
                 Best,
                 Author: Xavier Hines""");

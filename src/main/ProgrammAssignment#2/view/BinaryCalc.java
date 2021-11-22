@@ -135,7 +135,7 @@ public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
                 @Override
                 public void run() {
                     if(bs.checkString(valueX.getText(), valueY.getText())) {
-                        Answer.setText(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText())));
+                        Answer.setText(toBinary(op.pow(toBigInteger(valueX.getText()), toBigInteger(valueY.getText()))));
                     } else {
                         Answer.setText("Error must enter binary string");
                     }
@@ -175,7 +175,7 @@ public class BinaryCalc extends JFrame implements BinaryBigIntConversion {
                 @Override
                 public void run() {
                     if(bs.checkString(valueX.getText())) {
-                        Answer.setText(op.fac(toBigInteger(valueX.getText())));
+                        Answer.setText(toBinary(op.fac(toBigInteger(valueX.getText()))));
                     } else {
                         Answer.setText("Error must enter binary string");
                     }

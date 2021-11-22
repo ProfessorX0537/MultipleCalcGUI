@@ -10,7 +10,7 @@ public class AboutWindow extends JFrame {
      */
     public AboutWindow() {
         JFrame help = new JFrame();
-        help.setTitle("Calculator Operation Help");
+        setTitle("About");
         setSize(550,200);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
@@ -23,6 +23,7 @@ public class AboutWindow extends JFrame {
         helpPanel.add(textBox);
 
         textBox.setText("""
+                                                                                ABOUT
                 Hi,
                 The goal of this program was to provide four types of calculators to a user in one
                 easy to access space. The calculators offered are Binary, Hexadecimal, Big Integer, and

@@ -139,7 +139,9 @@ public class BigDecimalOperations extends Operations {
         if (y.equals(BigDecimal.ZERO)) {
             return "-1";
         } else {
-            return x.remainder(y).round(rnd).toString();
+            BigDecimal ans;
+            ans = x.remainder(y, rnd);
+            return ans.toString();
         }
     }
 }
